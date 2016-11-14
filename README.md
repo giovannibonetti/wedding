@@ -1,4 +1,4 @@
-# wedding.github.io
+# wedding
 Website for my wedding in 2016
 
 ## Requirements
