@@ -20,9 +20,9 @@ html
       label Diamante (R$ 450)
       br
 
-    button(onclick='startPaymentFlow()')
+    button(onclick='PagSeguro.startPaymentFlow()')
       | Iniciar o fluxo
 
-    script(src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous")
-    script(type='text/javascript' src='https://stc.sandbox.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.directpayment.js')
+    script(type='text/javascript' src='vendor/assets/bower/jquery/dist/jquery.min.js')
     script(type='text/javascript' src='js/app.js')
+    script(type='text/javascript' src='https://stc.sandbox.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.directpayment.js')

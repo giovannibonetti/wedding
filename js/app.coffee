@@ -1,21 +1,27 @@
-startPaymentFlow = ->
-  window.senderHash = PagSeguroDirectPayment.getSenderHash()
-  amount = parseFloat($('input[name=giftPrice]:checked', '#quota').val())
-  console.log amount
+window.PagSeguro =
+  imageHost: 'https://stc.pagseguro.uol.com.br'
+  sessionId: '0a89a3cb287444e59066e4053f6a83f9'
+
+getGiftPriceAmount = ->
+  parseFloat $('input[name=giftPrice]:checked', '#quota').val()
+
+PagSeguro.startPaymentFlow = ->
+  @senderHash = PagSeguroDirectPayment.getSenderHash()
   PagSeguroDirectPayment.getPaymentMethods
-    amount: amount
-    complete: displayPaymentMethods
+    amount: getGiftPriceAmount()
+    complete: @displayPaymentMethods
   return
 
-displayPaymentMethods = (response) ->
-  console.log 'displayPaymentMethods'
-  if !response.error
-    console.log response.paymentMethods
+# PagSeguro flow - Callback #1
+PagSeguro.displayPaymentMethods = (response) ->
+  if response.error
+    console.log '1. displayPaymentMethods -> error'
+  else
+    console.log '1. displayPaymentMethods -> ok'
+    PagSeguro.paymentMethods = response.paymentMethods
   return
 
-PagSeguroDirectPayment.setSessionId '0a89a3cb287444e59066e4053f6a83f9'
 $(document).ready ->
-  $('#quota input').on 'change', ->
-    console.log 'valor', $('input[name=giftPrice]:checked', '#quota').val()
-    return
+  PagSeguroDirectPayment.setSessionId PagSeguro.sessionId
+  $('#quota input').on 'change', -> console.log 'valor', getGiftPriceAmount()
   return

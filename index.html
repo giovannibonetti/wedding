@@ -15,9 +15,9 @@
       <input type="radio" name="giftPrice" value="480"/>
       <label>Diamante (R$ 450)</label><br/>
     </form>
-    <button onclick="startPaymentFlow()">Iniciar o fluxo</button>
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://stc.sandbox.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.directpayment.js"></script>
+    <button onclick="PagSeguro.startPaymentFlow()">Iniciar o fluxo</button>
+    <script type="text/javascript" src="vendor/assets/bower/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="https://stc.sandbox.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.directpayment.js"></script>
   </body>
 </html>
