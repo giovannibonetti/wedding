@@ -1,0 +1,23 @@
+{
+  "name": "wedding",
+  "homepage": "https://github.com/giovannibonetti/wedding",
+  "authors": [
+    "Giovanni Bonetti <giovanni.bonetti@gmail.com>"
+  ],
+  "description": "",
+  "main": "index.html",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/assets/bower",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.1.1",
+    "lodash": "^4.17.1"
+  }
+}

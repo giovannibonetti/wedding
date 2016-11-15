@@ -1,6 +1,7 @@
 window.PagSeguro =
-  imageHost: 'https://stc.pagseguro.uol.com.br'
   sessionId: '0a89a3cb287444e59066e4053f6a83f9'
+  imageHost: 'https://stc.pagseguro.uol.com.br'
+  image: {}
 
 getGiftPriceAmount = ->
   parseFloat $('input[name=giftPrice]:checked', '#quota').val()
@@ -19,7 +20,16 @@ PagSeguro.displayPaymentMethods = (response) ->
   else
     console.log '1. displayPaymentMethods -> ok'
     PagSeguro.paymentMethods = response.paymentMethods
+    PagSeguro.setImagePaths()
   return
+
+PagSeguro.setImagePaths = ->
+  for own paymentMethod, methodParams of @paymentMethods
+    @image[paymentMethod] ||= {}
+    for own specificMethod, specificOptions of methodParams.options
+      @image[paymentMethod][specificMethod] ||= {}
+      for own imageSize, imageObject of specificOptions.images
+        @image[paymentMethod][specificMethod][imageSize] = @imageHost + imageObject.path
 
 $(document).ready ->
   PagSeguroDirectPayment.setSessionId PagSeguro.sessionId
