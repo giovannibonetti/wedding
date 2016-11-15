@@ -6,6 +6,7 @@ Website for my wedding in 2016
 
 ## Building
 1. Go to the terminal and run in the project folder `./jade_watch.sh`
+2. Open a new terminal tab and run in the project folder `./coffee_watch.sh`
 
 ## Running
 

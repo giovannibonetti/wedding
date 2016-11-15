@@ -2,16 +2,27 @@ html
   head
     link(rel='stylesheet' href='https://cdn.jsdelivr.net/picnicss/6.2.5/picnic.min.css')
   body
-    .flex
-      .pure-u-1-6
-      .pure-u-2-3
-        h1 Em breve
-        p
-          | Inauguração do site prevista para 17 de novembro às 23:30.
-          | Os seguintes elementos estarão presentes:
-        ul
-          li Informações gerais sobre o evento
-          li Fotos do ensaio dos noivos
-          li Confirmação de convidados
-          li Lista de presentes e cotas pra lua de mel
-    .pure-u-1-6
+    h1 Teste de pagamento
+    form#quota(action='')
+      input(type='radio' name='giftPrice' value='120')
+      label Bronze (R$ 120)
+      br
+
+      input(type='radio' name='giftPrice' value='240')
+      label Prata (R$ 240)
+      br
+
+      input(type='radio' name='giftPrice' value='360')
+      label Ouro (R$ 360)
+      br
+
+      input(type='radio' name='giftPrice' value='480')
+      label Diamante (R$ 450)
+      br
+
+    button(onclick='startPaymentFlow()')
+      | Iniciar o fluxo
+
+    script(src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous")
+    script(type='text/javascript' src='https://stc.sandbox.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.directpayment.js')
+    script(type='text/javascript' src='js/app.js')
