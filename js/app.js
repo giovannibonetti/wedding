@@ -13,40 +13,42 @@
     return parseFloat($('input[name=giftPrice]:checked', '#quota').val());
   };
 
-  PagSeguro.startPaymentFlow = function() {
+  PagSeguro.startPaymentFlow = function(event) {
     this.senderHash = PagSeguroDirectPayment.getSenderHash();
     PagSeguroDirectPayment.getPaymentMethods({
       amount: getGiftPriceAmount(),
-      complete: this.displayPaymentMethods
+      complete: this.paymentMethodsCallback
     });
+    event.preventDefault();
   };
 
-  PagSeguro.displayPaymentMethods = function(response) {
+  PagSeguro.paymentMethodsCallback = function(response) {
     if (response.error) {
-      console.log('1. displayPaymentMethods -> error');
+      console.log('1. paymentMethodsCallback -> error');
     } else {
-      console.log('1. displayPaymentMethods -> ok');
-      PagSeguro.paymentMethods = response.paymentMethods;
-      PagSeguro.setImagePaths();
+      console.log('1. paymentMethodsCallback -> ok');
+      PagSeguro.setPaymentMethods(response);
     }
   };
 
-  PagSeguro.setImagePaths = function() {
-    var base, imageObject, imageSize, methodParams, paymentMethod, ref, results, specificMethod, specificOptions;
-    ref = this.paymentMethods;
+  PagSeguro.setPaymentMethods = function(response) {
+    var imageObject, imageSize, methodParams, paymentMethod, ref, results, specificMethod, specificOptions;
+    this.APIResponse = response;
+    this.paymentMethods = {};
+    ref = response.paymentMethods;
     results = [];
     for (paymentMethod in ref) {
       if (!hasProp.call(ref, paymentMethod)) continue;
       methodParams = ref[paymentMethod];
-      (base = this.image)[paymentMethod] || (base[paymentMethod] = {});
+      this.paymentMethods[paymentMethod] = {};
       results.push((function() {
-        var base1, ref1, results1;
+        var ref1, results1;
         ref1 = methodParams.options;
         results1 = [];
         for (specificMethod in ref1) {
           if (!hasProp.call(ref1, specificMethod)) continue;
           specificOptions = ref1[specificMethod];
-          (base1 = this.image[paymentMethod])[specificMethod] || (base1[specificMethod] = {});
+          this.paymentMethods[paymentMethod][specificMethod] = {};
           results1.push((function() {
             var ref2, results2;
             ref2 = specificOptions.images;
@@ -54,7 +56,7 @@
             for (imageSize in ref2) {
               if (!hasProp.call(ref2, imageSize)) continue;
               imageObject = ref2[imageSize];
-              results2.push(this.image[paymentMethod][specificMethod][imageSize] = this.imageHost + imageObject.path);
+              results2.push(this.paymentMethods[paymentMethod][specificMethod][imageSize] = this.imageHost + imageObject.path);
             }
             return results2;
           }).call(this));

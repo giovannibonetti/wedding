@@ -4,18 +4,24 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/picnicss/6.2.5/picnic.min.css"/>
   </head>
   <body>
-    <h1>Teste de pagamento</h1>
-    <form id="quota" action="">
-      <input type="radio" name="giftPrice" value="120"/>
-      <label>Bronze (R$ 120)</label><br/>
-      <input type="radio" name="giftPrice" value="240"/>
-      <label>Prata (R$ 240)</label><br/>
-      <input type="radio" name="giftPrice" value="360"/>
-      <label>Ouro (R$ 360)</label><br/>
-      <input type="radio" name="giftPrice" value="480"/>
-      <label>Diamante (R$ 450)</label><br/>
-    </form>
-    <button onclick="PagSeguro.startPaymentFlow()">Iniciar o fluxo</button>
+    <div class="flex">
+      <div class="container"></div>
+      <div class="container">
+        <h1>Teste de pagamento</h1>
+        <form id="quota" action="">
+          <input id="gifPrice1" type="radio" name="giftPrice" value="120"/>
+          <label for="gifPrice1" class="checkable">Bronze (R$ 120)</label><br/>
+          <input id="gifPrice2" type="radio" name="giftPrice" value="240"/>
+          <label for="gifPrice2" class="checkable"> Prata (R$ 240)</label><br/>
+          <input id="gifPrice3" type="radio" name="giftPrice" value="360"/>
+          <label for="gifPrice3" class="checkable"> Ouro (R$ 360)</label><br/>
+          <input id="gifPrice4" type="radio" name="giftPrice" value="480"/>
+          <label for="gifPrice4" class="checkable"> Diamante (R$ 450)</label><br/>
+          <button onclick="PagSeguro.startPaymentFlow(event)">Iniciar o fluxo</button>
+        </form>
+      </div>
+      <div class="container"></div>
+    </div>
     <script type="text/javascript" src="vendor/assets/bower/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="vendor/assets/bower/lodash/dist/lodash.min.js"></script>
     <script type="text/javascript" src="js/app.js"></script>

@@ -2,26 +2,31 @@ html
   head
     link(rel='stylesheet' href='https://cdn.jsdelivr.net/picnicss/6.2.5/picnic.min.css')
   body
-    h1 Teste de pagamento
-    form#quota(action='')
-      input(type='radio' name='giftPrice' value='120')
-      label Bronze (R$ 120)
-      br
+    .flex
+      .container
+      .container
+        h1 Teste de pagamento
 
-      input(type='radio' name='giftPrice' value='240')
-      label Prata (R$ 240)
-      br
+        form#quota(action='')
+          input#gifPrice1(type='radio' name='giftPrice' value='120')
+          label.checkable(for='gifPrice1') Bronze (R$ 120)
+          br
 
-      input(type='radio' name='giftPrice' value='360')
-      label Ouro (R$ 360)
-      br
+          input#gifPrice2(type='radio' name='giftPrice' value='240')
+          label.checkable(for='gifPrice2')  Prata (R$ 240)
+          br
 
-      input(type='radio' name='giftPrice' value='480')
-      label Diamante (R$ 450)
-      br
+          input#gifPrice3(type='radio' name='giftPrice' value='360')
+          label.checkable(for='gifPrice3')  Ouro (R$ 360)
+          br
 
-    button(onclick='PagSeguro.startPaymentFlow()')
-      | Iniciar o fluxo
+          input#gifPrice4(type='radio' name='giftPrice' value='480')
+          label.checkable(for='gifPrice4')  Diamante (R$ 450)
+          br
+
+          button(onclick='PagSeguro.startPaymentFlow(event)')
+            | Iniciar o fluxo
+      .container
 
     script(type='text/javascript' src='vendor/assets/bower/jquery/dist/jquery.min.js')
     script(type='text/javascript' src='vendor/assets/bower/lodash/dist/lodash.min.js')

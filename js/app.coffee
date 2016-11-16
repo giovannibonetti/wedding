@@ -6,30 +6,31 @@ window.PagSeguro =
 getGiftPriceAmount = ->
   parseFloat $('input[name=giftPrice]:checked', '#quota').val()
 
-PagSeguro.startPaymentFlow = ->
+PagSeguro.startPaymentFlow = (event) ->
   @senderHash = PagSeguroDirectPayment.getSenderHash()
   PagSeguroDirectPayment.getPaymentMethods
     amount: getGiftPriceAmount()
-    complete: @displayPaymentMethods
+    complete: @paymentMethodsCallback
+  event.preventDefault()
   return
 
-# PagSeguro flow - Callback #1
-PagSeguro.displayPaymentMethods = (response) ->
+PagSeguro.paymentMethodsCallback = (response) ->
   if response.error
-    console.log '1. displayPaymentMethods -> error'
+    console.log '1. paymentMethodsCallback -> error'
   else
-    console.log '1. displayPaymentMethods -> ok'
-    PagSeguro.paymentMethods = response.paymentMethods
-    PagSeguro.setImagePaths()
+    console.log '1. paymentMethodsCallback -> ok'
+    PagSeguro.setPaymentMethods(response)
   return
 
-PagSeguro.setImagePaths = ->
-  for own paymentMethod, methodParams of @paymentMethods
-    @image[paymentMethod] ||= {}
+PagSeguro.setPaymentMethods = (response) ->
+  @APIResponse = response
+  @paymentMethods = {}
+  for own paymentMethod, methodParams of response.paymentMethods
+    @paymentMethods[paymentMethod] = {}
     for own specificMethod, specificOptions of methodParams.options
-      @image[paymentMethod][specificMethod] ||= {}
+      @paymentMethods[paymentMethod][specificMethod] = {}
       for own imageSize, imageObject of specificOptions.images
-        @image[paymentMethod][specificMethod][imageSize] = @imageHost + imageObject.path
+        @paymentMethods[paymentMethod][specificMethod][imageSize] = @imageHost + imageObject.path
 
 $(document).ready ->
   PagSeguroDirectPayment.setSessionId PagSeguro.sessionId
