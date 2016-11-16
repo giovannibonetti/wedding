@@ -3,10 +3,26 @@
   var getGiftPriceAmount,
     hasProp = {}.hasOwnProperty;
 
+  angular.module('wedding', ['wedding.routes']).controller('AppCtrl', function() {});
+
+  angular.module('wedding.routes', ['ui.router']).config([
+    "$locationProvider", "$stateProvider", "$urlRouterProvider", function($locationProvider, $stateProvider, $urlRouterProvider) {
+      $urlRouterProvider.otherwise('/');
+      $stateProvider.state('wedding', {
+        url: '/',
+        template: '<h2>Casamento</h2>',
+        controller: function() {}
+      }).state('wedding.gifts', {
+        url: '/lista-de-presentes',
+        template: '<h2>Casamento</h2>',
+        controller: function() {}
+      });
+    }
+  ]);
+
   window.PagSeguro = {
     sessionId: '0a89a3cb287444e59066e4053f6a83f9',
-    imageHost: 'https://stc.pagseguro.uol.com.br',
-    image: {}
+    imageHost: 'https://stc.pagseguro.uol.com.br'
   };
 
   getGiftPriceAmount = function() {
@@ -32,7 +48,7 @@
   };
 
   PagSeguro.setPaymentMethods = function(response) {
-    var imageObject, imageSize, methodParams, paymentMethod, ref, results, specificMethod, specificOptions;
+    var i, imageObject, imageSize, j, k, methodParams, paymentMethod, ref, results, specificMethod, specificOptions;
     this.APIResponse = response;
     this.paymentMethods = {};
     ref = response.paymentMethods;
@@ -40,7 +56,8 @@
     for (paymentMethod in ref) {
       if (!hasProp.call(ref, paymentMethod)) continue;
       methodParams = ref[paymentMethod];
-      this.paymentMethods[paymentMethod] = {};
+      i = _.camelCase(paymentMethod);
+      this.paymentMethods[i] = {};
       results.push((function() {
         var ref1, results1;
         ref1 = methodParams.options;
@@ -48,7 +65,10 @@
         for (specificMethod in ref1) {
           if (!hasProp.call(ref1, specificMethod)) continue;
           specificOptions = ref1[specificMethod];
-          this.paymentMethods[paymentMethod][specificMethod] = {};
+          j = _.camelCase(specificMethod);
+          this.paymentMethods[i][j] = _.pick(specificOptions, ['displayName', 'code']);
+          this.paymentMethods[i][j].available = specificOptions.status === 'AVAILABLE';
+          this.paymentMethods[i][j].images = {};
           results1.push((function() {
             var ref2, results2;
             ref2 = specificOptions.images;
@@ -56,7 +76,8 @@
             for (imageSize in ref2) {
               if (!hasProp.call(ref2, imageSize)) continue;
               imageObject = ref2[imageSize];
-              results2.push(this.paymentMethods[paymentMethod][specificMethod][imageSize] = this.imageHost + imageObject.path);
+              k = _.camelCase(imageSize);
+              results2.push(this.paymentMethods[i][j].images[k] = this.imageHost + imageObject.path);
             }
             return results2;
           }).call(this));
@@ -69,6 +90,7 @@
 
   $(document).ready(function() {
     PagSeguroDirectPayment.setSessionId(PagSeguro.sessionId);
+    $('#startPaymentFlow').attr('disabled', null);
     $('#quota input').on('change', function() {
       return console.log('valor', getGiftPriceAmount());
     });

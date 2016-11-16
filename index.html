@@ -1,29 +1,31 @@
 
 <html>
   <head>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/picnicss/6.2.5/picnic.min.css"/>
+    <link rel="stylesheet" href="vendor/assets/bower/picnic/releases/picnic.min.css"/>
   </head>
   <body>
-    <div class="flex">
-      <div class="container"></div>
+    <div ng-app="wedding" class="flex">
+      <div ui-view="" class="container"></div>
       <div class="container">
         <h1>Teste de pagamento</h1>
         <form id="quota" action="">
-          <input id="gifPrice1" type="radio" name="giftPrice" value="120"/>
-          <label for="gifPrice1" class="checkable">Bronze (R$ 120)</label><br/>
-          <input id="gifPrice2" type="radio" name="giftPrice" value="240"/>
-          <label for="gifPrice2" class="checkable"> Prata (R$ 240)</label><br/>
-          <input id="gifPrice3" type="radio" name="giftPrice" value="360"/>
-          <label for="gifPrice3" class="checkable"> Ouro (R$ 360)</label><br/>
-          <input id="gifPrice4" type="radio" name="giftPrice" value="480"/>
-          <label for="gifPrice4" class="checkable"> Diamante (R$ 450)</label><br/>
-          <button onclick="PagSeguro.startPaymentFlow(event)">Iniciar o fluxo</button>
+          <input id="giftPrice1" type="radio" name="giftPrice" value="120"/>
+          <label for="giftPrice1" class="checkable">Bronze (R$ 120)</label><br/>
+          <input id="giftPrice2" type="radio" name="giftPrice" value="240"/>
+          <label for="giftPrice2" class="checkable">Prata (R$ 240)</label><br/>
+          <input id="giftPrice3" type="radio" name="giftPrice" value="360"/>
+          <label for="giftPrice3" class="checkable">Ouro (R$ 360)</label><br/>
+          <input id="giftPrice4" type="radio" name="giftPrice" value="480"/>
+          <label for="giftPrice4" class="checkable">Diamante (R$ 450)</label><br/>
+          <button id="startPaymentFlow" onclick="PagSeguro.startPaymentFlow(event)" disabled="disabled">Iniciar o fluxo</button>
         </form>
       </div>
       <div class="container"></div>
     </div>
     <script type="text/javascript" src="vendor/assets/bower/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="vendor/assets/bower/lodash/dist/lodash.min.js"></script>
+    <script type="text/javascript" src="vendor/assets/bower/angular/angular.js"></script>
+    <script type="text/javascript" src="vendor/assets/bower/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
     <script type="text/javascript" src="https://stc.sandbox.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.directpayment.js"></script>
   </body>

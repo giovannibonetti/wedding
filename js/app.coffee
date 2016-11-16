@@ -1,7 +1,31 @@
+angular
+  .module 'wedding', ['wedding.routes']
+  .controller 'AppCtrl', ->
+    return
+
+angular
+  .module 'wedding.routes', ['ui.router']
+  .config ["$locationProvider", "$stateProvider", "$urlRouterProvider", ($locationProvider, $stateProvider, $urlRouterProvider) ->
+    # $locationProvider.html5Mode(true)
+    $urlRouterProvider.otherwise '/'
+    $stateProvider
+      .state 'wedding',
+        url: '/'
+        template: '<h2>Casamento</h2>'
+        controller: ->
+          return
+
+      .state 'wedding.gifts',
+        url: '/lista-de-presentes'
+        template: '<h2>Casamento</h2>'
+        controller: ->
+          return
+    return
+  ]
+
 window.PagSeguro =
   sessionId: '0a89a3cb287444e59066e4053f6a83f9'
   imageHost: 'https://stc.pagseguro.uol.com.br'
-  image: {}
 
 getGiftPriceAmount = ->
   parseFloat $('input[name=giftPrice]:checked', '#quota').val()
@@ -26,13 +50,19 @@ PagSeguro.setPaymentMethods = (response) ->
   @APIResponse = response
   @paymentMethods = {}
   for own paymentMethod, methodParams of response.paymentMethods
-    @paymentMethods[paymentMethod] = {}
+    i = _.camelCase(paymentMethod)
+    @paymentMethods[i] = {}
     for own specificMethod, specificOptions of methodParams.options
-      @paymentMethods[paymentMethod][specificMethod] = {}
+      j = _.camelCase(specificMethod)
+      @paymentMethods[i][j] = _.pick(specificOptions, ['displayName', 'code'])
+      @paymentMethods[i][j].available = specificOptions.status is 'AVAILABLE'
+      @paymentMethods[i][j].images = {}
       for own imageSize, imageObject of specificOptions.images
-        @paymentMethods[paymentMethod][specificMethod][imageSize] = @imageHost + imageObject.path
+        k = _.camelCase(imageSize)
+        @paymentMethods[i][j].images[k] = @imageHost + imageObject.path
 
 $(document).ready ->
   PagSeguroDirectPayment.setSessionId PagSeguro.sessionId
+  $('#startPaymentFlow').attr('disabled', null)
   $('#quota input').on 'change', -> console.log 'valor', getGiftPriceAmount()
   return

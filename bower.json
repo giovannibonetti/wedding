@@ -18,6 +18,9 @@
   ],
   "dependencies": {
     "jquery": "^3.1.1",
-    "lodash": "^4.17.1"
+    "lodash": "^4.17.1",
+    "picnic": "^6.2.5",
+    "angular": "^1.5.8",
+    "angular-ui-router": "^0.3.2"
   }
 }

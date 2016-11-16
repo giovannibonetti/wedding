@@ -1,0 +1,35 @@
+{
+  "name": "picnic",
+  "version": "6.2.5",
+  "homepage": "https://github.com/picnicss/picnic",
+  "authors": [
+    "Francisco Presencia <developerfrancisco@hotmail.com>"
+  ],
+  "description": "Semantic HTML5 & nice CSS3",
+  "main": "picnic.min.css",
+  "keywords": [
+    "css",
+    "css3",
+    "semantic",
+    "html5",
+    "framework",
+    "library"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "web",
+    "package.json"
+  ],
+  "_release": "6.2.5",
+  "_resolution": {
+    "type": "version",
+    "tag": "6.2.5",
+    "commit": "5cc35d5911856c48655043dbd74bf6e5533ac99b"
+  },
+  "_source": "https://github.com/picnicss/picnic.git",
+  "_target": "^6.2.5",
+  "_originalSource": "picnic",
+  "_direct": true
+}
