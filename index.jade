@@ -1,36 +1,37 @@
 doctype html
 //if IE 8
-  html.ie8(lang='en')
+  html.ie8(lang='pt-BR')
 //if IE 9
-  html.ie9(lang='en')
+  html.ie9(lang='pt-BR')
 //[if !IE] <!
-html(lang='en')
+html(lang='pt-BR')
   // <![endif]
   head
-    title Responsive website template for wedding invitations
+    title Christienne e Giovanni vão se casar!
     //- Meta
     meta(charset='utf-8')
-    meta(http-equiv='X-UA-Compatible', content='IE=edge')
-    meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    meta(name='description', content='')
-    meta(name='author', content='')
-    link(rel='shortcut icon', href='favicon.ico')
-    link(href='https://fonts.googleapis.com/css?family=Montserrat:400,700', rel='stylesheet', type='text/css')
-    link(href='https://fonts.googleapis.com/css?family=Satisfy', rel='stylesheet', type='text/css')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    meta(name='description' content='')
+    meta(name='author' content='')
+    link(rel='shortcut icon' href='favicon.ico')
+    link(href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css')
+    link(href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css')
     //- Global CSS
-    link(rel='stylesheet', href='assets/plugins/bootstrap/css/bootstrap.min.css')
+    link(rel='stylesheet' href='assets/plugins/bootstrap/css/bootstrap.min.css')
     //- Plugins CSS
-    link(rel='stylesheet', href='assets/plugins/font-awesome/css/font-awesome.min.css')
-    link(rel='stylesheet', href='assets/plugins/love-icons/style.css')
-    link(rel='stylesheet', href='assets/plugins/animate-css/animate.min.css')
-    link(rel='stylesheet', href='assets/plugins/Gallery/css/blueimp-gallery.min.css')
-    link(rel='stylesheet', href='assets/plugins/Bootstrap-Image-Gallery/css/bootstrap-image-gallery.min.css')
+    link(rel='stylesheet' href='assets/plugins/font-awesome/css/font-awesome.min.css')
+    link(rel='stylesheet' href='assets/plugins/love-icons/style.css')
+    link(rel='stylesheet' href='assets/plugins/animate-css/animate.min.css')
+    link(rel='stylesheet' href='assets/plugins/Gallery/css/blueimp-gallery.min.css')
+    link(rel='stylesheet' href='assets/plugins/Bootstrap-Image-Gallery/css/bootstrap-image-gallery.min.css')
     //- Theme CSS
-    link#theme-style(rel='stylesheet', href='assets/css/styles.css')
+    link#theme-style(rel='stylesheet' href='assets/css/styles.css')
     //- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
     //if lt IE 9
       script(src='https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js')
       script(src='https://oss.maxcdn.com/respond/1.4.2/respond.min.js')
+
   body(data-spy='scroll')
     #fb-root
     script.
@@ -57,39 +58,37 @@ html(lang='en')
             ul.nav.navbar-nav.center-block
               li.nav-item
                 a.scrollto(href='#wedding')
-                  | The Wedding
+                  | O casamento
               li.nav-item
                 a.scrollto(href='#story')
-                  | Our Story
+                  | Nossa história
               li.nav-item
                 a.scrollto(href='#gallery')
-                  | Gallery
+                  | Galeria
               li.nav-item
                 a.scrollto(href='#gift')
-                  | Registries
+                  | Cotas de lua de mel e presentes
               li.nav-item
                 a(href='#' data-toggle='modal' data-target='#rsvp-modal')
-                  | RSVP
+                  | Confirmar presença
+
     #hero.hero-section
       .container.text-center
         .row
           .hero-box.col-md-5.col-sm-7.col-xs-12
             h1.headline.script
               span.names.display-block
-                | Amy & Nick
+                | Chris & Giovanni
               span.statement.display-block
                 span.swirl-left
                 span.statement-text
-                  | are getting hitched
+                  | estão se casando!
                 span.swirl-right
-              //- //statement
-            //- /headline
             .date
               span.date-text
-                | July 16, 2018
-            //- //date
+                | 17/dez/2016
             a.btn.btn-primary.btn-rsvp(href='#' data-toggle='modal' data-target='#rsvp-modal')
-              | RSVP Now
+              | Confirmar presença
       .curve-holder
 
     section#wedding.wedding-section.section
@@ -97,36 +96,38 @@ html(lang='en')
         h3.title.script
           span.title-deco-left
           span.title-text
-            | The Wedding
+            | O casamento
           span.title-deco-right
         #countdown-box.countdown-box
         .row.cols-wrapper
           .ceremony-col.col-xs-12.col-sm-6
             .col-inner
-              h4.subtitle Ceremony
+              h4.subtitle
+                | Cerimônia
               p.intro
-                | We are getting married at St Paul’s Church. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor aenean massa.
+                | Vamos nos casar na igreja Senhor Bom Jesus do Cabral, localizada na Rua Bom Jesus, 159.
               ul.meta-list.list-unstyled.text-left.center-block
                 li
                   span.icon-calendar.love-icon
-                  | Saturday - July 16th, 2016
+                  | Sábado - 17/dez/2016
                 li
                   span.icon-clock.love-icon
-                  | 11:00am - 2:00pm
+                  | 10:30am - 11:30pm
                 li
                   span.icon-map.love-icon
-                  | St Paul's Church
+                  | Igreja Bom Jesus do Cabral
                   br
                   span.direction-info.display-block.list-link
-                    a(href='#', data-toggle='modal', data-target='#direction-modal')
-                      | How to get there
+                    a(href='#' data-toggle='modal' data-target='#direction-modal')
+                      | Como chegar
                   span.facilities-info.display-block.list-link
-                    a(href='#', data-toggle='modal', data-target='#facilities-modal')
-                      | Facilities
+                    a(href='#' data-toggle='modal' data-target='#facilities-modal')
+                      | Facilidades
 
           .reception-col.col-xs-12.col-sm-6
             .col-inner
-              h4.subtitle Reception
+              h4.subtitle
+                | Recepção
               p.intro
                 | The party will take place after the ceremony at the Manor House.
                 | Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor aenean massa.
