@@ -265,48 +265,46 @@ html(lang='pt-BR')
             //-     img.img-responsive(src='assets/images/gallery/pic-18.jpg', alt='')
 
     section#gift.gift-section.section
-      .container.text-center
+      .container.text-center(style='margin-left:auto;padding:0')
         h3.title.script
           span.title-deco-left
           span.title-text
-            span.hidden-xs
-              | Lista
-            | de presentes
+            //- span.hidden-xs
+            //-   | Lista&nbsp;
+            | Lista de presentes
           span.title-deco-right
         .message-container(style='margin-bottom:0')
-          .message-inner.center-block
-            .intro
+          .message-inner.center-block(style='padding:90px 0 30px')
+            .intro(style='width:400px;margin:auto')
               | Sabemos que alguns de vocês gostariam de contribuir com algo mais, e desde já agradecemos!
-              | Temos opções diversificadas, pois sabemos que cada um é especial.
+              | Temos opções diversificadas, pois sabemos que cada um é especial!
               br
-              br
-              | O acesso às cotas de lua-de-mel está&nbsp;
+              | O acesso às cotas de lua-de-mel está aqui:
               a(href='http://christienne-e-giovanni.zankyou.com/br' target='_blank')
-                strong(style='font-size:120%')
-                  | neste link
-              | !
+                img(src='assets/images/gift-section.jpg' alt='' style='width:350px')
               br
-              | Para quem prefere nos prestigiar com presentes físicos, temos listas também nas lojas abaixo.
-            .thank-you.script
+              div(style='width:300px;margin:auto')
+                | Para quem prefere nos prestigiar com presentes físicos, temos listas nas lojas:
+              ul.list-inline.brand-list(style='width:285px;margin:0 auto 10px')
+                li(style='margin-bottom:0; padding:0 10px')
+                  a(href='https://www.amazon.com/wedding/giovani-bonetti-christienne-fortes-curitiba-december-2016/registry/1WL4O04PGAOUA' target='_blank')
+                    img(src='assets/images/brand-amazon.svg' alt='' style='width:120px')
+                li(style='margin-bottom:0; padding:0 10px')
+                  a(href='http://www.camicado.com.br/weddinglist/products/60325468' target='_blank')
+                    img(src='assets/images/brand-camicado.jpg' alt='' style='width:120px')
+                li(style='margin-bottom:0; padding:0 10px')
+                  a(href='http://listadecasamento.fastshop.com.br/ListaCasamento/ListaCasamentoProdutos.aspx?ID=223340' target='_blank')
+                    img(src='assets/images/brand-fast-shop-v2.png' alt='' style='width:120px')
+                li(style='margin-bottom:0; padding:0 10px')
+                  a(href='http://www.pontofrio.com.br/Site/ListaGerenciadaLandingPage.aspx?idListaCompra=583989' target='_blank')
+                    img(src='assets/images/brand-ponto-frio.jpg' alt='' style='width:120px')
+            .thank-you.script(style='width:275px;margin:15px auto;')
               | Muito obrigado!
-            .signature.script
+            .signature.script(style='width:245px;margin:15px auto;')
               | Christienne e Giovanni
             .couple-profile
 
         .registries-container
-          ul.list-inline.brand-list
-            li
-              a(href='https://www.amazon.com/wedding/giovani-bonetti-christienne-fortes-curitiba-december-2016/registry/1WL4O04PGAOUA' target='_blank')
-                img(src='assets/images/brand-amazon.svg' alt='')
-            li
-              a(href='http://www.camicado.com.br/weddinglist/products/60325468' target='_blank')
-                img(src='assets/images/brand-camicado.jpg' alt='')
-            li
-              a(href='http://listadecasamento.fastshop.com.br/ListaCasamento/ListaCasamentoProdutos.aspx?ID=223340' target='_blank')
-                img(src='assets/images/brand-fast-shop.png' alt='')
-            li
-              a(href='http://www.pontofrio.com.br/Site/ListaGerenciadaLandingPage.aspx?idListaCompra=583989' target='_blank')
-                img(src='assets/images/brand-ponto-frio.jpg' alt='')
 
     section#comments.comments-section.section
       .container.text-center
