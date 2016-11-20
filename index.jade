@@ -109,7 +109,7 @@ html(lang='pt-BR')
         #countdown-box.countdown-box
         .row.cols-wrapper
           .ceremony-col.col-xs-12.col-sm-6
-            .col-inner
+            .col-inner(style='padding:30px')
               h4.subtitle
                 | Cerimônia
               p.intro
@@ -125,6 +125,7 @@ html(lang='pt-BR')
                   span.icon-map.love-icon
                   | Igreja Bom Jesus do Cabral
                   br
+                  img(src='assets/images/igreja-cabral-2.jpg' style='margin:55px 5% 9px;width:90%')
                   //- span.direction-info.display-block.list-link
                   //-   a(href='#' data-toggle='modal' data-target='#direction-modal')
                   //-     | Como chegar
@@ -133,7 +134,7 @@ html(lang='pt-BR')
                   //-     | Facilidades
 
           .reception-col.col-xs-12.col-sm-6
-            .col-inner
+            .col-inner(style='padding:30px')
               h4.subtitle
                 | Recepção
               p.intro
@@ -148,8 +149,13 @@ html(lang='pt-BR')
                   | 12:00 - 15:00
                 li
                   span.icon-map.love-icon
-                  | Restaurante Dom Antônio
+                  span
+                    | Salão Azul&nbsp;
+                  span(style='clear:both;display:block')
+                  span(style='padding-left:56px;font-size:70%')
+                    | Restaurante Dom Antônio
                   br
+                  img(src='assets/images/dom-antonio.jpg' style='margin:10px 10%;width:80%')
                   //- span.direction-info.display-block.list-link
                   //-   a(href='#' data-toggle='modal' data-target='#direction-modal')
                   //-     | Como chegar
@@ -209,84 +215,90 @@ html(lang='pt-BR')
           | Estas são algumas das fotos que tiramos pra marcar este momento.
         .gallery-container
           #photos-wrapper.photos-wrapper
-            .item
+            .item.w2
               a(href='assets/images/gallery/pic-01.jpg', data-gallery='')
-                img.img-responsive(src='assets/images/gallery/pic-01.jpg' alt='')
-            .item
-              a(href='assets/images/gallery/pic-02.jpg' data-gallery='')
-                img.img-responsive(src='assets/images/gallery/pic-02.jpg' alt='')
-            .item
+                img.img-responsive(src='assets/images/gallery/pic-01.jpg')
+            .item.w2
               a(href='assets/images/gallery/pic-03.jpg' data-gallery='')
-                img.img-responsive(src='assets/images/gallery/pic-03.jpg' alt='')
-            .item
-              a(href='assets/images/gallery/pic-04.jpg' data-gallery='')
-                img.img-responsive(src='assets/images/gallery/pic-04.jpg' alt='')
+                img.img-responsive(src='assets/images/gallery/pic-03.jpg')
             .item
               a(href='assets/images/gallery/pic-05.jpg' data-gallery='')
-                img.img-responsive(src='assets/images/gallery/pic-05.jpg' alt='')
+                img.img-responsive(src='assets/images/gallery/pic-05.jpg')
             .item.w2
-              a(href='assets/images/gallery/pic-06.jpg' data-gallery='')
-                img.img-responsive(src='assets/images/gallery/pic-06.jpg' alt='')
+              a(href='assets/images/gallery/pic-15.jpg' data-gallery='')
+                img.img-responsive(src='assets/images/gallery/pic-15.jpg')
             .item
-              a(href='assets/images/gallery/pic-07.jpg' data-gallery='')
-                img.img-responsive(src='assets/images/gallery/pic-07.jpg' alt='')
-            .item
+              a(href='assets/images/gallery/pic-02.jpg' data-gallery='')
+                img.img-responsive(src='assets/images/gallery/pic-02.jpg')
+            .item.w2
               a(href='assets/images/gallery/pic-08.jpg' data-gallery='')
-                img.img-responsive(src='assets/images/gallery/pic-08.jpg' alt='')
+                img.img-responsive(src='assets/images/gallery/pic-08.jpg')
             .item
+              a(href='assets/images/gallery/pic-04.jpg' data-gallery='')
+                img.img-responsive(src='assets/images/gallery/pic-04.jpg')
+            .item.w2
               a(href='assets/images/gallery/pic-09.jpg' data-gallery='')
-                img.img-responsive(src='assets/images/gallery/pic-09.jpg' alt='')
+                img.img-responsive(src='assets/images/gallery/pic-09.jpg')
             .item
               a(href='assets/images/gallery/pic-10.jpg' data-gallery='')
-                img.img-responsive(src='assets/images/gallery/pic-10.jpg' alt='')
-            .item
-              a(href='assets/images/gallery/pic-11.jpg' data-gallery='')
-                img.img-responsive(src='assets/images/gallery/pic-11.jpg' alt='')
+                img.img-responsive(src='assets/images/gallery/pic-10.jpg')
             .item.w2
+              a(href='assets/images/gallery/pic-11.jpg' data-gallery='')
+                img.img-responsive(src='assets/images/gallery/pic-11.jpg')
+            .item
               a(href='assets/images/gallery/pic-12.jpg' data-gallery='')
-                img.img-responsive(src='assets/images/gallery/pic-12.jpg' alt='')
+                img.img-responsive(src='assets/images/gallery/pic-12.jpg')
             .item
               a(href='assets/images/gallery/pic-13.jpg' data-gallery='')
-                img.img-responsive(src='assets/images/gallery/pic-13.jpg' alt='')
+                img.img-responsive(src='assets/images/gallery/pic-13.jpg')
             .item
               a(href='assets/images/gallery/pic-14.jpg' data-gallery='')
-                img.img-responsive(src='assets/images/gallery/pic-14.jpg' alt='')
-            .item
-              a(href='assets/images/gallery/pic-15.jpg' data-gallery='')
-                img.img-responsive(src='assets/images/gallery/pic-15.jpg' alt='')
+                img.img-responsive(src='assets/images/gallery/pic-14.jpg')
             .item
               a(href='assets/images/gallery/pic-16.jpg' data-gallery='')
-                img.img-responsive(src='assets/images/gallery/pic-16.jpg' alt='')
+                img.img-responsive(src='assets/images/gallery/pic-16.jpg')
             .item
               a(href='assets/images/gallery/pic-17.jpg' data-gallery='')
-                img.img-responsive(src='assets/images/gallery/pic-17.jpg' alt='')
+                img.img-responsive(src='assets/images/gallery/pic-17.jpg')
             .item
               a(href='assets/images/gallery/pic-18.jpg' data-gallery='')
-                img.img-responsive(src='assets/images/gallery/pic-18.jpg' alt='')
-            .item
+                img.img-responsive(src='assets/images/gallery/pic-18.jpg')
+            .item.w2
               a(href='assets/images/gallery/pic-19.jpg' data-gallery='')
-                img.img-responsive(src='assets/images/gallery/pic-19.jpg' alt='')
-            .item
+                img.img-responsive(src='assets/images/gallery/pic-19.jpg')
+            .item.w2
               a(href='assets/images/gallery/pic-20.jpg' data-gallery='')
-                img.img-responsive(src='assets/images/gallery/pic-20.jpg' alt='')
-            .item
+                img.img-responsive(src='assets/images/gallery/pic-20.jpg')
+            .item.w2
               a(href='assets/images/gallery/pic-21.jpg' data-gallery='')
-                img.img-responsive(src='assets/images/gallery/pic-21.jpg' alt='')
+                img.img-responsive(src='assets/images/gallery/pic-21.jpg')
             .item
               a(href='assets/images/gallery/pic-22.jpg' data-gallery='')
-                img.img-responsive(src='assets/images/gallery/pic-22.jpg' alt='')
+                img.img-responsive(src='assets/images/gallery/pic-22.jpg')
             .item
               a(href='assets/images/gallery/pic-23.jpg' data-gallery='')
-                img.img-responsive(src='assets/images/gallery/pic-23.jpg' alt='')
+                img.img-responsive(src='assets/images/gallery/pic-23.jpg')
             .item
               a(href='assets/images/gallery/pic-24.jpg' data-gallery='')
-                img.img-responsive(src='assets/images/gallery/pic-24.jpg' alt='')
+                img.img-responsive(src='assets/images/gallery/pic-24.jpg')
             .item
               a(href='assets/images/gallery/pic-25.jpg' data-gallery='')
-                img.img-responsive(src='assets/images/gallery/pic-25.jpg' alt='')
+                img.img-responsive(src='assets/images/gallery/pic-25.jpg')
             .item
               a(href='assets/images/gallery/pic-26.jpg' data-gallery='')
-                img.img-responsive(src='assets/images/gallery/pic-26.jpg' alt='')
+                img.img-responsive(src='assets/images/gallery/pic-26.jpg')
+            .item.w2
+              a(href='assets/images/gallery/pic-27.jpg' data-gallery='')
+                img.img-responsive(src='assets/images/gallery/pic-27.jpg')
+            .item
+              a(href='assets/images/gallery/pic-28.jpg' data-gallery='')
+                img.img-responsive(src='assets/images/gallery/pic-28.jpg')
+            .item
+              a(href='assets/images/gallery/pic-29.jpg' data-gallery='')
+                img.img-responsive(src='assets/images/gallery/pic-29.jpg')
+            .item
+              a(href='assets/images/gallery/pic-30.jpg' data-gallery='')
+                img.img-responsive(src='assets/images/gallery/pic-30.jpg')
 
     section#gift.gift-section.section
       .container.text-center(style='margin-left:auto;padding:0')
